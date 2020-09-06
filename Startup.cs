@@ -36,7 +36,23 @@ namespace SignApp
             //注册Swagger生成器，定义一个和多个Swagger 文档
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "My API",
+                    Version = "v1",
+                    Description = "签签签后台",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "ZeigelMan",
+                        Email = string.Empty,
+                        Url = new Uri("https://blog.csdn.net/ningfeng8899")
+                    },
+                    License = new OpenApiLicense 
+                    { 
+                        Name = "许可证明为", 
+                        Url = new Uri("https://blog.csdn.net/ningfeng8899")
+                    }
+                });
             });
 
         }
