@@ -25,13 +25,16 @@ namespace SignApp.Controllers
         {
             this.LoadJson();
             Console.WriteLine("signers are collected!");
+            //int i = 0;
+            //signers.ForEach(signer => signer.Id = ++i);
+
             return signers.ToArray();
         }
 
         private void LoadJson()
         {
             string currentDirectory = Directory.GetCurrentDirectory();
-            string startupPath = Path.Combine( currentDirectory , "Data\\loveSigns.json");
+            string startupPath = Path.Combine(currentDirectory, "Data\\loveSigns.json");
 
             // Read the file as one string. 
             //string text = System.IO.File.ReadAllText(startupPath);

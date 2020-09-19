@@ -7,7 +7,9 @@ namespace SignApp.Model
 {
     public class SignItem
     {
-        public decimal Cost { get; set; }
+        public int Id { get; set; }
+
+        public decimal Value { get; set; }
 
         public string Type { get; set; }
 
