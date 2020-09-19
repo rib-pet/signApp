@@ -23,6 +23,7 @@ namespace SignApp.Controllers
         [HttpGet]
         public IEnumerable<SignItem> Get()
         {
+            signers.Clear();
             this.LoadJson();
             Console.WriteLine("signers are collected!");
             //int i = 0;
@@ -42,7 +43,18 @@ namespace SignApp.Controllers
             using (StreamReader r = new StreamReader(startupPath))
             {
                 string json = r.ReadToEnd();
-                signers = JsonConvert.DeserializeObject<List<SignItem>>(json);
+                List<SignItem> signs = JsonConvert.DeserializeObject<List<SignItem>>(json);
+                signers.AddRange(signs);
+            }
+
+            // add busineess signers
+            string busSignPath = Path.Combine(currentDirectory, "Data\\businessSigns.json");
+
+            using (StreamReader r = new StreamReader(busSignPath))
+            {
+                string json = r.ReadToEnd();
+                List<SignItem> signs = JsonConvert.DeserializeObject<List<SignItem>>(json);
+                signers.AddRange(signs);
             }
         }
     }
